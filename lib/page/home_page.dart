@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
     hasGameStart = true;
     Timer.periodic(Duration(milliseconds: 60), (timer) {
       time += 0.035;
-      height = -4.9 * time * time + 3 * time;
+      height = -4.9 * time * time + 3* time;
       setState(() {
         birdYaxis = initialHeight - height;
 
@@ -47,6 +47,13 @@ class _HomePageState extends State<HomePage> {
         hasGameStart = false;
       }
     });
+  }
+  bool birdIsDead(){
+    //checking if bird is above screen or below screen
+    if (birdYaxis < -1  || birdYaxis > 1){
+      return true;
+    }
+   return false;
   }
 
   void jump() {
